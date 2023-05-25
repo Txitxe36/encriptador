@@ -70,8 +70,9 @@ else{
     mensaje.style.backgroundImage = url("imagenes/descifrando2.jpg");
     
 }
-    return stringDesencriptado;
+   
 }
+     return stringDesencriptado;
  }
 
 /*copiar texto*/
