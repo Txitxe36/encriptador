@@ -72,11 +72,7 @@ else{
 }
    
 }
-<<<<<<< HEAD
 return stringDesencriptado;
-=======
-     return stringDesencriptado;
->>>>>>> d300295b1aa62a0a530165c245f7ba9658e5dad7
  }
 
 /*copiar texto*/
