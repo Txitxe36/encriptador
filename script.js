@@ -5,12 +5,28 @@ const mensaje = document.querySelector(".mensaje");
 const btn = document.querySelector("#btn-copiar");
 btn.style.display = "none";
 
+function validarTexto(){
+    let textoEscrito = document.querySelector(".text-area").value;
+    let validador = textoEscrito.match(/^[A-Za-z0-9 _-]*$/);
+
+    if(!validador || validador === 0 ){
+        swal("Ooops!","Solo son permitidas letras minúsculas y sin acento","warning");
+        //location.reload();
+        textarea.value = "";
+        return true;
+        }
+}
+
+
 function btnEncriptar(){
-    const textoEncriptado = encriptar(textarea.value);
-    mensaje.value = textoEncriptado;
-    textarea.value = "";
-    mensaje.style.backgroundImage = "none";
-    btn.style.display= "block";
+    if(!validarTexto()){
+        const textoEncriptado = encriptar(textarea.value);
+        mensaje.value = textoEncriptado;
+        textarea.value = "";
+        mensaje.style.backgroundImage = "none";
+        btn.style.display= "block";
+    }
+    
 }
 
 function btnDesencriptar(){
@@ -25,7 +41,7 @@ function btnDesencriptar(){
 function encriptar(stringEncriptado){
     let matrizCodigo = [["e", "enter"],["i","imes"],["a","ai"],["o","ober"],["u","ufat"]];
     stringEncriptado = stringEncriptado.toLowerCase();
-
+    
     for(let i =0;i < matrizCodigo.length;i++){
         
         if(stringEncriptado.includes(matrizCodigo[i][0])){
